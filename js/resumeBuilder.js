@@ -1,18 +1,20 @@
+$("#main").append([MacKenzie]);
+
 var bio
 {
 	"name" : "MacKenzie Rawcliffe",
 	"role" : ["Designer", "Writer", "Web Master", "Administrator"],
 	"contacts" :
 	{
-		"mobile": 2078528694,
-		"email": "kenziejoy@gmail.com",
-		"github": "kenziejoy",
-		"twitter": "kenziejoy",
-		"location": "Boston"
+		"mobile" : 2078528694,
+		"email" : "kenziejoy@gmail.com",
+		"github" : "kenziejoy",
+		"twitter" : "kenziejoy",
+		"location" : "Boston"
 	},
-		"welcomeMessage": "Ayuh",
-		"skills": ["jumping","laughing","thinking"],
-		"biopic": "http://assets.nydailynews.com/polopoly_fs/1.1557685.1387926752!/img/httpImage/image.jpg_gen/derivatives/article_970/161702057kk00196-15th-annua.jpg"
+		"welcomeMessage" : "Ayuh",
+		"skills" : ["jumping","laughing","thinking"],
+		"biopic" :  "http://assets.nydailynews.com/polopoly_fs/1.1557685.1387926752!/img/httpImage/image.jpg_gen/derivatives/article_970/161702057kk00196-15th-annua.jpg"
 }
 
 var education

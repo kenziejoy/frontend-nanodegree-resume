@@ -15,7 +15,7 @@ var bio
 		"welcomeMessage" : "Ayuh",
 		"skills" : ["jumping","laughing","thinking"],
 		"biopic" :  "http://assets.nydailynews.com/polopoly_fs/1.1557685.1387926752!/img/httpImage/image.jpg_gen/derivatives/article_970/161702057kk00196-15th-annua.jpg"
-}
+};
 
 var education
 {
@@ -45,7 +45,7 @@ var education
 		"date": 2015,
 		"url": "http://www.udacity.com"
 	}
-}
+};
 
 var work
 {
@@ -66,7 +66,7 @@ var work
 			"description": "bummer"
 		}
 	]
-}
+};
 
 var projects
 {
@@ -83,7 +83,7 @@ var projects
 		"description": "nice"
 		}
 	]
-}
+};
 
 function displayWork() {
 	for (job in work.jobs) {
@@ -98,6 +98,6 @@ function displayWork() {
 		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 		$(".work-entry:last").append(formattedDescription
 	}
-}
+};
 
 displayWork();

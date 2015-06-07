@@ -1,53 +1,48 @@
-$("#main").append([MacKenzie]);
-
-var bio
+var bio =
 {
 	"name" : "MacKenzie Rawcliffe",
-	"role" : ["Designer", "Writer", "Web Master", "Administrator"],
+	"role" : [" Designer", " Writer", " Administrator"],
 	"contacts" :
 	{
-		"mobile" : 2078528694,
+		"mobile" : "207.852.8694",
 		"email" : "kenziejoy@gmail.com",
 		"github" : "kenziejoy",
-		"twitter" : "kenziejoy",
+		"twitter" : "@kenziejoy",
 		"location" : "Boston"
 	},
-		"welcomeMessage" : "Ayuh",
-		"skills" : ["jumping","laughing","thinking"],
-		"biopic" :  "http://assets.nydailynews.com/polopoly_fs/1.1557685.1387926752!/img/httpImage/image.jpg_gen/derivatives/article_970/161702057kk00196-15th-annua.jpg"
+	"welcomeMessage" : "Mainer extrodinaire",
+	"skills" : [" jumping"," laughing"," thinking", " rump shaking"],
+	"biopic" :  "http://i0.wp.com/everydayambassador.org/wp-content/uploads/2012/05/MacKenzie_Rawcliffe1.png?resize=150%2C150"
 };
 
-var education
-{
-	"schools":
-	[
-		{
-			"name": "Tufts University",
-			"location": "Medford, MA",
-			"degree": "Bachelors",
-			"majors": ["International Relations","Media Studies"],
-			"dates": 2007,
-			"url": "http://www.tufts.edu"
-		},
-		{
-			"name": "University of Maine, Graduate School",
-			"location": "Orono, ME",
-			"degree": "Masters",
-			"majors": ["International Relations","Public Administration"],
-			"dates": 2015,
-			"url": "http://www.maine.edu"
-		}
-	],
-	"onlineCourses":
-	{
-		"title": "Nanodegree",
-		"school": "Udacity",
-		"date": 2015,
-		"url": "http://www.udacity.com"
+bio.display = function() {
+	var formattedName = HTMLheaderName.replace("%data%", bio.name);
+	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+	var formattedMobile = HTMLmobile.replace("%data%",  bio.contacts.mobile);
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+	var formattedBiopic = HTMLbioPic.replace("%data%", bio.biopic);
+	var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+	$("#header").prepend(formattedRole);
+	$("#header").prepend(formattedName);
+	$("#topContacts").append(formattedMobile);
+	$("#topContacts").append(formattedEmail);
+	$("#topContacts").append(formattedGithub);
+	$("#topContacts").append(formattedLocation);
+	$("#header").append(formattedBiopic);
+	if(bio.skills.length > 0) {
+		$("#header").append(HTMLskillsStart);
+		var formattedSkills = HTMLskills.replace("%data%", bio.skills);
+		$("#header").append(formattedSkills);
 	}
+	$("#header").append(formattedWelcomeMsg);
 };
 
-var work
+bio.display();
+
+var work =
 {
 	"jobs":
 	[
@@ -56,31 +51,14 @@ var work
 			"title": "Production Assistant, Wardrobe",
 			"location": "Boston",
 			"dates": "2015",
-			"description": "nice"
+			"description": "Getting shit done"
 		},
 		{
 			"employer": "AFF",
 			"title": "Program Coordinator",
 			"location": "Washington D.C",
 			"dates": "2013-2015",
-			"description": "bummer"
-		}
-	]
-};
-
-var projects
-{
-	"projects":
-	[
-		{
-		"title": "everyday ambassador",
-		"dates": "2014 - 2015",
-		"description": "nice"
-		},
-		{
-		"title": "Acadia Moon",
-		"dates": "2015",
-		"description": "nice"
+			"description": "Doing everything and doing it right."
 		}
 	]
 };
@@ -96,11 +74,28 @@ function displayWork() {
 		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
 		$(".work-entry:last").append(formattedDates);
 		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-		$(".work-entry:last").append(formattedDescription
+		$(".work-entry:last").append(formattedDescription)
 	}
 };
 
 displayWork();
+
+var projects =
+{
+	"projects":
+	[
+		{
+		"title": "Everyday Ambassador",
+		"dates": "2014 - 2015",
+		"description": "Web Master for the Everyday Ambassador project that seeks to connect people in a digital world."
+		},
+		{
+		"title": "Acadia Moon",
+		"dates": "2015",
+		"description": "Imagination Game Company"
+		}
+	]
+};
 
 projects.display = function() {
 	for (project in projects.projects) {
@@ -114,14 +109,80 @@ projects.display = function() {
 
 		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
 		$(".project-entry:last").append(formattedDescription);
-
-		if (projects.projects[project].images.length > 0) {
-			for (image in projects.projects[project].images) {
-				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-				$(".project-entry:last").append(formattedImage);
-			}
-		}
 	}
+};
+
+projects.display();
+
+var education =
+{
+	"schools":
+	[
+		{
+			"name": "Tufts University",
+			"location": "Medford, MA",
+			"degree": "Bachelors",
+			"majors": [" International Relations"," Media Studies"],
+			"dates": 2007,
+			"url": "http://www.tufts.edu"
+		},
+		{
+			"name": "University of Maine, Graduate School",
+			"location": "Orono, ME",
+			"degree": "Masters",
+			"majors": [" International Relations"," Public Administration"],
+			"dates": 2012,
+			"url": "http://www.maine.edu"
+		}
+	],
+	"onlineCourses":
+		{
+		"title": "Nanodegree",
+		"school": "Udacity",
+		"date": 2015,
+		"url": "http://www.udacity.com"
+		}
+};
+education.display = function() {
+	for (school in education.schools) {
+		$("#education").append(HTMLschoolStart);
+
+		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+		$(".education-entry:last").append(formattedName);
+
+		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+		$(".education-entry:last").append(formattedLocation);
+
+		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+		$(".education-entry:last").append(formattedDegree);
+
+		var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
+		$(".education-entry:last").append(formattedMajors);
+
+		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+		$(".education-entry:last").append(formattedDates);
+	}
+	for (onlinecourse in education.onlinecourses) {
+		$("#education").append(HTMLonlineClasses);
+
+		var formattedOnlinetitle = HTMLonlineTitle.replace("%data%", education.onlinecourse[onlinecourse].title);
+		$(".education-entry:last").append(formattedOnlinetitle);
+
+		var formattedOnlineschool = HTMLonlineSchool.replace("%data%", education.onlinecourse[onlinecourse].school);
+		$(".education-entry:last").append(formattedOnlineschool);
+
+		var formattedOnlinedates = HTMLonlineDates.replace("%data%", education.onlinecourse[onlinecourse].dates);
+		$(".education-entry:last").append(formattedOnlinedates);
+	}
+};
+
+education.display();
+
+$(document).click(function(loc) {
+		var x = loc.pageX;
+		var y = loc.pageY;
+		logClicks(x,y);
+	});
 
 function locationizer(work_obj) {
 	var locationArray = [];
